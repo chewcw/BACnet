@@ -132,12 +132,13 @@ namespace System.IO.BACnet
         /// </remarks>
         private static void DisableConnReset(UdpClient client)
         {
-            const uint IOC_IN = 0x80000000;
-            const uint IOC_VENDOR = 0x18000000;
-            const uint SIO_UDP_CONNRESET = IOC_IN | IOC_VENDOR | 12;
+            //TODO: commented out in order to be built in linux
+            // const uint IOC_IN = 0x80000000;
+            // const uint IOC_VENDOR = 0x18000000;
+            // const uint SIO_UDP_CONNRESET = IOC_IN | IOC_VENDOR | 12;
 
-            client?.Client.IOControl(unchecked((int)SIO_UDP_CONNRESET),
-                new[] { System.Convert.ToByte(false) }, null);
+            // client?.Client.IOControl(unchecked((int)SIO_UDP_CONNRESET),
+            //     new[] { System.Convert.ToByte(false) }, null);
         }
 
         protected void Close()
